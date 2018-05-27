@@ -17348,7 +17348,9 @@ Phone: <span itemprop="telephone">604-288-8080</span>
     listing = subCatContent.select("td > span.listing a")
     for l in listing:
         image = l.parent.parent.parent.find("img", attrs={"title": l.string})
-        print(image['src'])
+        print(l.string, "\n",image['src'])
+        price = l.parent.parent.parent.select("font > strong")
+        print(price[0].string)
         break
 
 scrapNcixListing("https://www.ncix.com/category/ddr3-memory-d0-1303.htm")
